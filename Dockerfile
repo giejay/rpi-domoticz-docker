@@ -16,11 +16,14 @@ RUN \
   apt-get install -y iputils-ping && \
   apt-get clean && \
   apt-get autoclean && \
+  apt-get install wget && \
   rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Expose port.
 EXPOSE 8080
 
-CMD ["/root/domoticz/domoticz", "-www", "8080"]
+RUN mkdir -p /home/pi/domoticz && \
+    wget https://releases.domoticz.com/releases/release/domoticz_linux_armv7l.tgz && \
+    tar -xvzf domoticz_linux_armv7l.tgz -C /home/pi/domoticz
 
-ADD domoticz_linux_armv7l.tgz /root/domoticz
+CMD ["/home/pi/domoticz/domoticz", "-www", "8080"]
