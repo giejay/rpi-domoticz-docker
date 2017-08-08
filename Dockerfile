@@ -11,7 +11,7 @@ MAINTAINER Florian Chauveau
 # Install Domoticz from sources.
 RUN \
   apt-get update && \
-  apt-get install -y cmake apt-utils build-essential netcat && \
+  apt-get install -y cmake apt-utils build-essential netcat lua5.2 && \
   apt-get install -y libboost-dev libboost-thread-dev libboost-system-dev libsqlite3-dev subversion curl libcurl4-openssl-dev libusb-dev zlib1g-dev && \
   apt-get install -y iputils-ping python3-pip python3-dev libffi-dev libssl-dev libxml2-dev libxslt1-dev libjpeg8-dev && \
   pip3 install python-mirobo && \
